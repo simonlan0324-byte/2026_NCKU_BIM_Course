@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\LebrCarbon.Core\LebrCarbon.Core.csproj" />
     <ProjectReference Include="..\..\src\LebrCarbon.Data\LebrCarbon.Data.csproj" />
+    <ProjectReference Include="..\..\src\LebrCarbon.Reports\LebrCarbon.Reports.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Xunit" />

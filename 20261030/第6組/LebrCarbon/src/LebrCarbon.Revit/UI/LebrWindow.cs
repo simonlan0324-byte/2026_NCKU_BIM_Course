@@ -85,6 +85,7 @@ public sealed class LebrWindow : Window
         DockPanel.SetDock(buttons, Dock.Right);
         buttons.Children.Add(Btn("計算", (_, _) => Calculate()));
         buttons.Children.Add(Btn("儲存", (_, _) => Save(true)));
+        buttons.Children.Add(Btn("匯出 Excel 計算書", (_, _) => ExportExcel()));
         buttons.Children.Add(Btn("匯出 CSV", (_, _) => ExportCsv()));
         buttons.Children.Add(Btn("關閉", (_, _) => Close()));
         bar.Children.Add(buttons);
@@ -474,6 +475,42 @@ public sealed class LebrWindow : Window
         var path = Path.ChangeExtension(_projectPath, null) + $".{DateTime.Now:yyyyMMdd-HHmm}.csv";
         LebrReportWriter.WriteCsv(_last, path);
         SetStatus($"已匯出：{path}");
+    }
+
+    /// <summary>
+    /// 匯出 Excel 計算書：先以目前輸入重新計算，再輸出含公式的 .xlsx（版面參照手冊附錄三）。
+    /// </summary>
+    private void ExportExcel()
+    {
+        Calculate();
+        if (_last is null) return;
+
+        var path = Path.ChangeExtension(_projectPath, null) + $".計算書.{DateTime.Now:yyyyMMdd-HHmm}.xlsx";
+        try
+        {
+            LebrExcelWriter.Write(path, _last,
+                new ShapeValues(_file.Shape.PAr, _file.Shape.Aspect, _file.Shape.Rc), _doc.Title);
+        }
+        catch (IOException ex)
+        {
+            MessageBox.Show(this, $"無法寫入檔案，若同名檔案正在 Excel 中開啟請先關閉。\n\n{ex.Message}",
+                "匯出失敗", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
+        }
+
+        SetStatus($"已匯出計算書：{path}");
+        if (MessageBox.Show(this, $"已匯出：\n{path}\n\n要現在開啟嗎？", "匯出 Excel 計算書",
+                MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(path) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                SetStatus($"已匯出，但無法自動開啟：{ex.Message}");
+            }
+        }
     }
 
     /// <summary>讓正在編輯中的文字方塊寫回資料。</summary>
