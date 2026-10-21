@@ -525,6 +525,19 @@ public sealed class LebrWindow : Window
         if (_last is null) return;
 
         var settings = DashboardSettings.Load();
+
+        // 先確認後端有開（最多 2 秒），沒開就不必再問快照名稱
+        bool running;
+        using (var probe = new DashboardClient(settings.BaseUrl))
+            running = Task.Run(() => probe.IsRunningAsync()).GetAwaiter().GetResult();
+        if (!running)
+        {
+            var msg = $"{DashboardClient.NotRunningMessage}（{settings.BaseUrl}）";
+            SetStatus(msg);
+            MessageBox.Show(this, msg, "上傳到控制台", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
+        }
+
         var dlg = new UploadDialog($"{_doc.Title} {DateTime.Now:MM/dd HH:mm}", settings.BaseUrl) { Owner = this };
         if (dlg.ShowDialog() != true) return;
 
