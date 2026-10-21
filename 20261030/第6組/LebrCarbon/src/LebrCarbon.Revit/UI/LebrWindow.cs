@@ -6,6 +6,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using LebrCarbon.Core.Lebr;
+using LebrCarbon.Dashboard;
 using LebrCarbon.Data;
 using LebrCarbon.Reports;
 using LebrCarbon.Revit.Extraction;
@@ -87,6 +88,7 @@ public sealed class LebrWindow : Window
         buttons.Children.Add(Btn("儲存", (_, _) => Save(true)));
         buttons.Children.Add(Btn("匯出 Excel 計算書", (_, _) => ExportExcel()));
         buttons.Children.Add(Btn("匯出 CSV", (_, _) => ExportCsv()));
+        buttons.Children.Add(Btn("上傳到控制台", (_, _) => UploadToDashboard()));
         buttons.Children.Add(Btn("關閉", (_, _) => Close()));
         bar.Children.Add(buttons);
         bar.Children.Add(_status);
@@ -510,6 +512,69 @@ public sealed class LebrWindow : Window
             {
                 SetStatus($"已匯出，但無法自動開啟：{ex.Message}");
             }
+        }
+    }
+
+    /// <summary>
+    /// 上傳到網頁控制台：先以目前輸入重新計算，問快照名稱，再送出（控制台計畫書 W1）。
+    /// 後端沒開時只提示，不影響其他功能。
+    /// </summary>
+    private void UploadToDashboard()
+    {
+        Calculate();
+        if (_last is null) return;
+
+        var settings = DashboardSettings.Load();
+        var dlg = new UploadDialog($"{_doc.Title} {DateTime.Now:MM/dd HH:mm}", settings.BaseUrl) { Owner = this };
+        if (dlg.ShowDialog() != true) return;
+
+        byte[]? excel = null;
+        if (dlg.AttachExcel)
+        {
+            var tmp = Path.Combine(Path.GetTempPath(), $"lebr-{Guid.NewGuid():N}.xlsx");
+            try
+            {
+                LebrExcelWriter.Write(tmp, _last, new ShapeValues(_file.Shape.PAr, _file.Shape.Aspect, _file.Shape.Rc), _doc.Title);
+                excel = File.ReadAllBytes(tmp);
+            }
+            catch (IOException ex)
+            {
+                SetStatus($"Excel 計算書產生失敗，改為不附檔上傳：{ex.Message}");
+            }
+            finally
+            {
+                try { File.Delete(tmp); } catch (IOException) { }
+            }
+        }
+
+        // 案子 key 用模型檔名，與 {模型名}.lebr.json 一致；未存檔時用標題
+        var key = string.IsNullOrWhiteSpace(_doc.PathName) ? _doc.Title : Path.GetFileNameWithoutExtension(_doc.PathName);
+        var snapshot = SnapshotBuilder.Build(_last, key, _doc.Title, dlg.SnapshotName, _file.Shape, excel: excel);
+
+        SetStatus("上傳中…");
+        Cursor = Cursors.Wait;
+        UploadResult result;
+        try
+        {
+            using var client = new DashboardClient(settings.BaseUrl);
+            // 在背景執行緒等待，避免在 UI 執行緒上同步等候 async 造成死結
+            result = Task.Run(() => client.UploadAsync(snapshot)).GetAwaiter().GetResult();
+        }
+        finally
+        {
+            Cursor = null;
+        }
+
+        if (result.Ok)
+        {
+            SetStatus($"已上傳到控制台：{dlg.SnapshotName}（快照 {result.SnapshotId}）");
+            MessageBox.Show(this, $"已上傳「{dlg.SnapshotName}」。\n\n在瀏覽器開 http://localhost:5173 查看。",
+                "上傳到控制台", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        else
+        {
+            SetStatus(result.Message);
+            MessageBox.Show(this, result.Message, "上傳到控制台", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 

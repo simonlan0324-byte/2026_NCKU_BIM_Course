@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "plugin": {
+    "version": "1.0.0",
+    "manual": "LEBR-2025"
+  },
+  "project": {
+    "key": "專案1",
+    "title": "專案1"
+  },
+  "snapshot": {
+    "name": "RC 外牆貼磁磚＋輕隔間",
+    "createdAt": "2026-10-21T10:56:05.8605684+08:00"
+  },
+  "inputs": {
+    "aFu": 336,
+    "aFb": 0,
+    "s": 3,
+    "sb": 0,
+    "bh": 3.5,
+    "i": 1,
+    "saD": 0.3,
+    "fu": 3,
+    "rs": 1,
+    "l": 200,
+    "d0": 300,
+    "structure": "RC",
+    "wOverride": null,
+    "sp": 1.106,
+    "f": 1,
+    "cser": 0,
+    "ebf": 0,
+    "baselineWOverride": null,
+    "baselineSpOverride": null,
+    "baselineFOverride": null,
+    "wear": "Low",
+    "wasteUsage": "Other",
+    "ll": 0,
+    "reuseCredit": 0,
+    "recycledMaterialCredit": 0,
+    "lowCarbonMethodCredit": 0,
+    "w": 1,
+    "averageFloorArea": 112,
+    "baselineW": 1,
+    "baselineSp": 1.6,
+    "baselineF": 1.2,
+    "lccr": 1,
+    "rn": 1
+  },
+  "shape": {
+    "pAr": 1.172,
+    "aspect": 1.75,
+    "rc": 0,
+    "levelName": "FL1",
+    "f1": 1,
+    "f2": 1,
+    "f3": 1,
+    "f": 1
+  },
+  "result": {
+    "eec": 119526.38815996873,
+    "eecc": 145861.28345996872,
+    "tec": 134861.42815996872,
+    "tecc": 161196.32345996873,
+    "eci": 355.733298095145,
+    "ecis": 434.11096267847836,
+    "deltaCf": 26334.89529999999,
+    "cfr": 0.18054753581835536,
+    "grade": "1級",
+    "ll": 0,
+    "credits": 0,
+    "cfsUnderground": 15288,
+    "stages": {
+      "design": {
+        "structure": 55440,
+        "nonStructural": 47748.1043,
+        "renew": 8568.972,
+        "construction": 1088.067562590468,
+        "demolition": 6681.24429737826,
+        "total": 119526.38815996873
+      },
+      "baseline": {
+        "structure": 78976.39679999999,
+        "nonStructural": 50546.6028,
+        "renew": 8568.972,
+        "construction": 1088.067562590468,
+        "demolition": 6681.24429737826,
+        "total": 145861.28345996872
+      }
+    },
+    "designStructure": {
+      "w": 1,
+      "sp": 1.106,
+      "f": 1,
+      "lccr": 1,
+      "rn": 1,
+      "c": 165,
+      "cBeforeFloor": 161.91644,
+      "cu": 55440,
+      "cFs": 55440
+    },
+    "baselineStructure": {
+      "w": 1,
+      "sp": 1.6,
+      "f": 1.2,
+      "lccr": 1,
+      "rn": 1,
+      "c": 235.04879999999997,
+      "cBeforeFloor": 235.04879999999997,
+      "cu": 78976.39679999999,
+      "cFs": 78976.39679999999
+    },
+    "scale": [
+      {
+        "grade": "1+級",
+        "eci": 347.2887701427827
+      },
+      {
+        "grade": "1級",
+        "eci": 364.6532086499218
+      },
+      {
+        "grade": "2級",
+        "eci": 382.01764715706094
+      },
+      {
+        "grade": "3級",
+        "eci": 399.38208566420013
+      },
+      {
+        "grade": "4級",
+        "eci": 421.087633798124
+      },
+      {
+        "grade": "5級",
+        "eci": 477.52205894632624
+      },
+      {
+        "grade": "6級",
+        "eci": 520.933155214174
+      }
+    ]
+  },
+  "items": [
+    {
+      "side": "design",
+      "blccId": "CW-0",
+      "category": "cw",
+      "categoryName": "不透光帷幕外牆及一般外牆",
+      "name": "傳統 15cm RC 外牆（基準）",
+      "area": 436.08,
+      "newEf": 73.67,
+      "renewEf": 0,
+      "newCarbon": 32126.0136,
+      "renewCarbon": 0,
+      "carbon": 32126.0136,
+      "source": "模型：牆「LEBR測試 RC外牆15cm 貼磁磚」× 12",
+      "elements": []
+    },
+    {
+      "side": "design",
+      "blccId": "IW-3",
+      "category": "iw",
+      "categoryName": "內隔間",
+      "name": "輕隔間牆（矽酸鈣板）",
+      "area": 82.43,
+      "newEf": 22.33,
+      "renewEf": 0,
+      "newCarbon": 1840.6619,
+      "renewCarbon": 0,
+      "carbon": 1840.6619,
+      "source": "模型：牆「LEBR測試 輕隔間 138mm」× 3",
+      "elements": []
+    },
+    {
+      "side": "design",
+      "blccId": "OW-1",
+      "category": "ow",
+      "categoryName": "一般外牆外裝",
+      "name": "RC 外牆貼磁磚（基準）",
+      "area": 436.08,
+      "newEf": 28.7,
+      "renewEf": 19.65,
+      "newCarbon": 12515.496,
+      "renewCarbon": 8568.972,
+      "carbon": 21084.468,
+      "source": "模型：牆「LEBR測試 RC外牆15cm 貼磁磚」× 12",
+      "elements": []
+    },
+    {
+      "side": "design",
+      "blccId": "W-11-AL",
+      "category": "w",
+      "categoryName": "外窗及透光帷幕外窗",
+      "name": "崁入式鋁框＋5+5mm 雙強化膠合玻璃",
+      "area": 25.92,
+      "newEf": 48.84,
+      "renewEf": 0,
+      "newCarbon": 1265.9328000000003,
+      "renewCarbon": 0,
+      "carbon": 1265.9328000000003,
+      "source": "模型：窗「LEBR測試 120x180 鋁框5+5」× 12",
+      "elements": []
+    },
+    {
+      "side": "baseline",
+      "blccId": "CW-0",
+      "category": "cw",
+      "categoryName": "不透光帷幕外牆及一般外牆",
+      "name": "傳統 15cm RC 外牆（基準）",
+      "area": 436.08,
+      "newEf": 73.67,
+      "renewEf": 0,
+      "newCarbon": 32126.0136,
+      "renewCarbon": 0,
+      "carbon": 32126.0136,
+      "source": "基準案（對應 傳統 15cm RC 外牆（基準））",
+      "elements": []
+    },
+    {
+      "side": "baseline",
+      "blccId": "IW-1",
+      "category": "iw",
+      "categoryName": "內隔間",
+      "name": "磚牆雙面粉刷（基準）",
+      "area": 82.43,
+      "newEf": 56.28,
+      "renewEf": 0,
+      "newCarbon": 4639.160400000001,
+      "renewCarbon": 0,
+      "carbon": 4639.160400000001,
+      "source": "基準案（對應 輕隔間牆（矽酸鈣板））",
+      "elements": []
+    },
+    {
+      "side": "baseline",
+      "blccId": "OW-1",
+      "category": "ow",
+      "categoryName": "一般外牆外裝",
+      "name": "RC 外牆貼磁磚（基準）",
+      "area": 436.08,
+      "newEf": 28.7,
+      "renewEf": 19.65,
+      "newCarbon": 12515.496,
+      "renewCarbon": 8568.972,
+      "carbon": 21084.468,
+      "source": "基準案（對應 RC 外牆貼磁磚（基準））",
+      "elements": []
+    },
+    {
+      "side": "baseline",
+      "blccId": "W-11-AL",
+      "category": "w",
+      "categoryName": "外窗及透光帷幕外窗",
+      "name": "崁入式鋁框＋5+5mm 雙強化膠合玻璃",
+      "area": 25.92,
+      "newEf": 48.84,
+      "renewEf": 0,
+      "newCarbon": 1265.9328000000003,
+      "renewCarbon": 0,
+      "carbon": 1265.9328000000003,
+      "source": "基準案（對應 崁入式鋁框＋5+5mm 雙強化膠合玻璃）",
+      "elements": []
+    }
+  ],
+  "excel": null
+}

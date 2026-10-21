@@ -16,10 +16,11 @@
 - **數量檢核**：另外以材料數量 × 附錄一係數估算主結構碳排，和迴歸公式交叉比對。
 - **3D 熱點著色**：在 3D 視圖依每個構件的碳排量上色，從綠到紅共 5 級，一眼找出碳排集中的構件。構件碳排 = 主結構材料數量 × 附錄一係數 ＋ 非主結構面積 × B-LCC 新建碳排。以分位數分級，讓每級構件數大致相同，避免大樓板把其他構件都壓在最低一級。著色只改目前視圖的圖形覆寫，不改模型資料，按「清除著色」就能還原。
 - **Excel 計算書**：版面參照手冊附錄三，每一格都是公式（藍字輸入、黑字公式），可逐格查核，或修改藍字直接重算。不依賴外部套件，避免與其他 Revit 外掛的 DLL 衝突。
+- **網頁控制台**（`console/`）：在評估視窗按「上傳到控制台」，把這次的評估存成快照；沒有 Revit 的人（業主、組員）打開網頁就能看到等級、減碳率、八等級刻度、四階段碳排與非主結構明細。架構沿用 20261016 RFI 範例：外掛擷取、Go 後端存取、React 前端呈現。碳排只在外掛的計算核心算一次，網頁不重寫公式，所以數字與 Excel 計算書一致。
 
 ## 驗證
 
-計算核心用手冊附錄三「高雄市 Z 社會住宅」實例寫成單元測試，連同熱點分級等其他測試，33 個測試全部通過：
+計算核心用手冊附錄三「高雄市 Z 社會住宅」實例寫成單元測試，連同熱點分級、控制台快照等其他測試，38 個測試全部通過：
 
 | 項目 | 手冊 | 外掛 |
 |---|---|---|
@@ -31,16 +32,25 @@
 
 也在 Revit 中以 3 層測試建築實測，從模型讀取、帶入、計算到存檔的整條流程，結果都和手算一致。Excel 計算書匯出後以 LibreOffice 重算 89 個公式，零錯誤，數值與外掛一致。熱點著色在同一棟建築實測，為 70 個構件著色。其中主結構合計 35,770 kgCO2e，和「數量檢核」完全一致。清除著色在當次操作與重開 Revit 後都能正確還原。
 
+網頁控制台以同一棟建築的評估輸入上傳快照，網頁顯示 1 級、CFR 18.05%、EEC 119,526 kgCO2e，與外掛及 Excel 計算書一致。後端另有 4 個 Go 測試（上傳、列表、格式版本拒收、範例匯入）。
+
 ## 架構
 
 ```
 LebrCarbon/
-├─ src/LebrCarbon.Core/      計算核心（純 .NET，不引用 Revit API，可單獨測試）
-├─ src/LebrCarbon.Data/      手冊資料庫（JSON）與專案存檔
-│  └─ Resources/             blcc.LEBR-2025.json（附錄二，121 個構件）、factors.LEBR-2025.json（附錄一）
-├─ src/LebrCarbon.Revit/     Revit 外掛：功能區、模型擷取、評估視窗
-├─ src/LebrCarbon.Reports/   報告輸出（Excel 計算書、文字報告、CSV）
-└─ tests/                    單元測試（含手冊附錄三實例）
+├─ src/LebrCarbon.Core/       計算核心（純 .NET，不引用 Revit API，可單獨測試）
+├─ src/LebrCarbon.Data/       手冊資料庫（JSON）與專案存檔
+│  └─ Resources/              blcc.LEBR-2025.json（附錄二，121 個構件）、factors.LEBR-2025.json（附錄一）
+├─ src/LebrCarbon.Revit/      Revit 外掛：功能區、模型擷取、評估視窗
+├─ src/LebrCarbon.Reports/    報告輸出（Excel 計算書、文字報告、CSV）
+├─ src/LebrCarbon.Dashboard/  控制台傳送層：組快照 JSON、呼叫後端 API
+├─ src/LebrCarbon.Cli/        lebr-snapshot：不開 Revit，由 .lebr.json 產生／上傳快照
+└─ tests/                     單元測試（含手冊附錄三實例）
+console/
+├─ backend/                   Go + SQLite（127.0.0.1:8080）
+├─ frontend/                  React + Vite（localhost:5173）
+├─ samples/                   範例快照，資料庫是空的時候自動匯入
+└─ start.ps1                  一鍵啟動後端與前端
 ```
 
 Revit 相關程式全部集中在 `LebrCarbon.Revit`。手冊改版時只要換 `Resources` 裡的 JSON，Revit 改版時只要調整介接層。
@@ -71,13 +81,34 @@ Revit 若不是裝在 `C:\Program Files\Autodesk\Revit 2026`，請修改 `Direct
    - 按「計算」，在「結果」分頁看 EEC、減碳率、等級與所有中間值。
    - 按「匯出 Excel 計算書」，產生可查核的 .xlsx 計算書（也可以匯出 CSV）。
 4. 切到 3D 視圖、視覺樣式設為「著色」，按「熱點著色」。對話框會列出圖例和碳排最高的 5 個構件。看完按「清除著色」還原。
+5. 先執行 `console\start.ps1`，再在評估視窗按「上傳到控制台」，輸入快照名稱（例如「方案 B：輕隔間」），瀏覽器開 http://localhost:5173 查看。
+
+## 網頁控制台
+
+需求：Go 與 Node.js（與 20261016 RFI 範例相同），不需要 Revit。
+
+```
+cd console
+.\start.ps1
+```
+
+瀏覽器開 http://localhost:5173。資料庫是空的時候，後端會自動匯入 `console/samples/` 的範例快照（3 層測試建築，1 級、CFR 18.05%），所以教室沒有 Revit 2026 也能 demo。要清空重來：關掉後端視窗，刪除 `console/backend/data/lebr.db`。
+
+不開 Revit，也可以用評估輸入檔產生快照（需要 .NET SDK）：
+
+```
+cd LebrCarbon
+dotnet run --project src/LebrCarbon.Cli -- 專案1.lebr.json --name "方案 A" --upload
+```
+
+`--out 檔名.json` 改為寫成檔案（可放進 `console/samples/`），`--excel` 一併附上 Excel 計算書。後端網址預設 `http://127.0.0.1:8080`，外掛端可在 `%AppData%\LebrCarbon\console.json` 以 `{"baseUrl": "…"}` 修改。
 
 ## 目前限制
 
 - 不支援多棟分棟評估（手冊 3-5 節）、無標準層時逐層平均 F、對比模型結構分析法。
 - 出挑係數 Rc 要手動輸入。停車場、設備室、儲藏空間的地坪，要避免標上 B-LCC ID。
 - 熱點著色的構件碳排是材料數量法，用來找熱點，加總不等於 LEBR 評估的 EEC（主結構評估採迴歸公式）。
-- PDF 摘要、方案比較尚未完成。
+- PDF 摘要尚未完成。網頁控制台的方案比較、從網頁回 Revit 定位構件、Excel 下載規劃中。
 
 ## 資料來源
 

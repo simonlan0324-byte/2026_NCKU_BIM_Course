@@ -12,8 +12,12 @@
     <ProjectReference Include="..\..\src\LebrCarbon.Core\LebrCarbon.Core.csproj" />
     <ProjectReference Include="..\..\src\LebrCarbon.Data\LebrCarbon.Data.csproj" />
     <ProjectReference Include="..\..\src\LebrCarbon.Reports\LebrCarbon.Reports.csproj" />
+    <ProjectReference Include="..\..\src\LebrCarbon.Dashboard\LebrCarbon.Dashboard.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Fixtures\*.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

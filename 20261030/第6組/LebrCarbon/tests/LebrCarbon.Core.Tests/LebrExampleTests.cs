@@ -10,7 +10,7 @@ namespace LebrCarbon.Core.Tests;
 /// </summary>
 public class LebrExampleTests
 {
-    private static BuildingInputs Inputs() => new()
+    internal static BuildingInputs Inputs() => new()
     {
         AFu = 56_259.80, AFb = 23_120.49, S = 14, Sb = 3, BH = 4.2,
         I = 1.0, SaD = 0.298, Fu = 3.0, Rs = 1.0, L = 205, D0 = 300,
@@ -21,7 +21,7 @@ public class LebrExampleTests
     private static NonStructuralItem N(NsCategory c, string name, double area, double ef, double renew) =>
         new() { Category = c, Name = name, Area = area, NewEf = ef, RenewEf = renew };
 
-    private static List<NonStructuralItem> Design() => new()
+    internal static List<NonStructuralItem> Design() => new()
     {
         N(NsCategory.ExteriorFinish, "金屬模板搗灌 RC 外牆貼磁磚", 39_381.7, 19.65, 19.65),
         N(NsCategory.Window, "鋁框+5+5mm", 2_685.07, 48.84, 0),
@@ -40,7 +40,7 @@ public class LebrExampleTests
         N(NsCategory.OutdoorFloor, "RC 底+水泥粉刷", 51.66, 78.2, 18.1),
     };
 
-    private static List<NonStructuralItem> Baseline() => new()
+    internal static List<NonStructuralItem> Baseline() => new()
     {
         N(NsCategory.ExteriorFinish, "貼磁磚", 39_381.7, 28.7, 19.65),
         N(NsCategory.Window, "鋁框+5+5mm", 2_685.07, 48.84, 0),
