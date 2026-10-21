@@ -24,3 +24,6 @@ export async function health() {
 export const listProjects = () => get('/api/projects')
 export const listSnapshots = (projectId) => get(`/api/projects/${projectId}/snapshots`)
 export const getSnapshot = (id) => get(`/api/snapshots/${id}`)
+export const compareSnapshots = (ids) => get(`/api/compare?ids=${ids.join(',')}`)
+// Excel 計算書直接用連結下載，不經 fetch
+export const excelUrl = (id) => `${API_BASE}/api/snapshots/${id}/excel`

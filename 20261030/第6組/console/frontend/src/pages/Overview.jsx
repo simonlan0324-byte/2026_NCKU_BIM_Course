@@ -1,3 +1,4 @@
+import { excelUrl } from '../api.js'
 import { kg, num, pct, text, time, STRUCTURE, WEAR, WASTE } from '../format.js'
 import GradeBadge from '../components/GradeBadge.jsx'
 import GradeScale from '../components/GradeScale.jsx'
@@ -20,14 +21,17 @@ export default function Overview({ snapshot, snapshots, snapshotId, onSelectSnap
             快照時間 {time(snapshot.createdAt)}・外掛 {text(snapshot.pluginVersion)}・手冊 {text(snapshot.manual)}
           </p>
         </div>
-        <label className="snapshot-picker">
-          <span className="muted small">快照</span>
-          <select value={snapshotId ?? ''} onChange={(e) => onSelectSnapshot(Number(e.target.value))}>
-            {snapshots.map((s) => (
-              <option key={s.id} value={s.id}>{s.name}（{s.grade}，{time(s.createdAt)}）</option>
-            ))}
-          </select>
-        </label>
+        <div className="head-actions">
+          {snapshot.hasExcel && <a className="button" href={excelUrl(snapshot.id)} download>下載 Excel 計算書</a>}
+          <label className="snapshot-picker">
+            <span className="muted small">快照</span>
+            <select value={snapshotId ?? ''} onChange={(e) => onSelectSnapshot(Number(e.target.value))}>
+              {snapshots.map((s) => (
+                <option key={s.id} value={s.id}>{s.name}（{s.grade}，{time(s.createdAt)}）</option>
+              ))}
+            </select>
+          </label>
+        </div>
       </div>
 
       <section className="card hero">
@@ -57,7 +61,13 @@ export default function Overview({ snapshot, snapshots, snapshotId, onSelectSnap
 
       <section className="card">
         <h2>地上層四階段碳排</h2>
-        <StageChart stages={r.stages} />
+        <StageChart
+          rows={r.stages && [
+            { key: 'design', label: '設計案', data: r.stages.design },
+            { key: 'baseline', label: '基準案', data: r.stages.baseline },
+          ]}
+          caption="單位 kgCO2e。施工與拆除廢棄只以設計案計算一次，基準案同（手冊式 12～19）。"
+        />
         <StageTable stages={r.stages} ll={r.ll} credits={r.credits} />
       </section>
 

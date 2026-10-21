@@ -29,6 +29,8 @@ func (s *Server) routes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /api/projects", s.handleListProjects)
 	mux.HandleFunc("GET /api/projects/{id}/snapshots", s.handleListSnapshots)
 	mux.HandleFunc("GET /api/snapshots/{id}", s.handleGetSnapshot)
+	mux.HandleFunc("GET /api/snapshots/{id}/excel", s.handleDownloadExcel)
+	mux.HandleFunc("GET /api/compare", s.handleCompare)
 }
 
 // errBadSnapshot 代表快照內容不合格（回 400），其他錯誤回 500。
@@ -208,11 +210,7 @@ func (s *Server) handleGetSnapshot(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		return
 	}
-	var d SnapshotDetail
-	var inputs, shape, result string
-	err := scanSummary(s.DB.QueryRow(`SELECT `+summaryCols+`, p.key, p.title, s.inputs_json, s.shape_json, s.result_json
-		FROM snapshots s JOIN projects p ON p.id = s.project_id WHERE s.id = ?`, id),
-		&d.SnapshotSummary, &d.ProjectKey, &d.ProjectTitle, &inputs, &shape, &result)
+	d, err := s.loadSnapshot(id)
 	if errors.Is(err, sql.ErrNoRows) {
 		writeErr(w, http.StatusNotFound, "找不到這筆快照")
 		return
@@ -221,14 +219,26 @@ func (s *Server) handleGetSnapshot(w http.ResponseWriter, r *http.Request) {
 		writeErr(w, 500, err.Error())
 		return
 	}
+	writeJSON(w, http.StatusOK, d)
+}
+
+// loadSnapshot 讀出單一快照與明細；不存在時回 sql.ErrNoRows。
+func (s *Server) loadSnapshot(id int64) (*SnapshotDetail, error) {
+	var d SnapshotDetail
+	var inputs, shape, result string
+	err := scanSummary(s.DB.QueryRow(`SELECT `+summaryCols+`, p.key, p.title, s.inputs_json, s.shape_json, s.result_json
+		FROM snapshots s JOIN projects p ON p.id = s.project_id WHERE s.id = ?`, id),
+		&d.SnapshotSummary, &d.ProjectKey, &d.ProjectTitle, &inputs, &shape, &result)
+	if err != nil {
+		return nil, err
+	}
 	d.Inputs, d.Shape, d.Result = json.RawMessage(inputs), json.RawMessage(shape), json.RawMessage(result)
 
 	rows, err := s.DB.Query(`SELECT side, blcc_id, category, category_name, name, area, new_ef, renew_ef,
 		new_carbon, renew_carbon, carbon, source, elements_json
 		FROM snapshot_items WHERE snapshot_id = ? ORDER BY id`, id)
 	if err != nil {
-		writeErr(w, 500, err.Error())
-		return
+		return nil, err
 	}
 	defer rows.Close()
 	d.Items = []Item{}
@@ -237,13 +247,12 @@ func (s *Server) handleGetSnapshot(w http.ResponseWriter, r *http.Request) {
 		var elements string
 		if err := rows.Scan(&it.Side, &it.BlccID, &it.Category, &it.CategoryName, &it.Name, &it.Area, &it.NewEf, &it.RenewEf,
 			&it.NewCarbon, &it.RenewCarbon, &it.Carbon, &it.Source, &elements); err != nil {
-			writeErr(w, 500, err.Error())
-			return
+			return nil, err
 		}
 		it.Elements = json.RawMessage(elements)
 		d.Items = append(d.Items, it)
 	}
-	writeJSON(w, http.StatusOK, d)
+	return &d, rows.Err()
 }
 
 // SeedIfEmpty 在資料庫沒有任何案子時，匯入資料夾裡的 *.json 快照（依檔名排序）。

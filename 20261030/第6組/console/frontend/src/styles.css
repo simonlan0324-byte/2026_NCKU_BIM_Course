@@ -226,6 +226,44 @@ th.num .th-sort { text-align: right; }
 .segmented button { border: none; border-radius: 0; }
 .segmented button.is-active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 
+/* ── 檢視切換、按鈕 ── */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; }
+.tabs button { border: none; border-bottom: 2px solid transparent; border-radius: 0; background: none; padding: 8px 14px; color: var(--ink-2); }
+.tabs button.is-active { border-bottom-color: var(--accent); color: var(--ink); font-weight: 600; }
+.tabs button:disabled { color: var(--muted); opacity: 0.6; cursor: not-allowed; }
+button:disabled { cursor: not-allowed; opacity: 0.55; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
+button.link { background: none; border: none; padding: 0; color: var(--accent); text-align: left; }
+button.link:hover { background: none; text-decoration: underline; }
+a { color: var(--accent); }
+a.button {
+  display: inline-block; text-decoration: none; color: inherit; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; white-space: nowrap;
+}
+a.button:hover { background: var(--surface-2); }
+.head-actions { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.card-head h2 { margin-bottom: 2px; }
+.data-table tr.is-checked td { background: var(--accent-soft); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ── 方案比較 ── */
+.compare-cards { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 12px; }
+.compare-card { display: flex; flex-direction: column; gap: 4px; }
+.compare-name { margin: 0; font-size: 1rem; }
+.compare-hero { display: flex; align-items: center; gap: 12px; margin: 6px 0; }
+.compare-cfr { font-size: 1.6rem; font-weight: 700; }
+.compare-stats { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
+.compare-stats dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.delta-good { color: var(--good-ink); font-weight: 600; }
+.delta-bad { color: var(--warn-ink); font-weight: 600; }
+.data-table tr.is-ranked td { background: var(--warn-soft); }
+.rank-tag {
+  display: inline-block; margin-left: 8px; padding: 0 6px; border-radius: 4px; font-size: 0.75rem;
+  border: 1px solid var(--warn); color: var(--warn-ink); background: var(--surface); white-space: nowrap;
+}
+
 /* ── 提示 ── */
 .notice { max-width: 640px; margin: 40px auto; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
 .notice h2 { margin-bottom: 8px; }
@@ -238,4 +276,5 @@ th.num .th-sort { text-align: right; }
   .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
   .content { padding: 16px; }
   .hero { grid-template-columns: 1fr; gap: 12px; }
+  .compare-cards { grid-template-columns: 1fr; }
 }

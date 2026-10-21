@@ -135,3 +135,85 @@ func TestSeedOnlyWhenEmpty(t *testing.T) {
 		t.Fatalf("projects after seed = %d", len(projects))
 	}
 }
+
+// 帶四階段與兩類非主結構的快照，partition 是內隔間碳排
+func compareJSON(name string, partition, structure float64, excel string) string {
+	b, _ := json.Marshal(map[string]any{
+		"schemaVersion": 1,
+		"plugin":        map[string]string{"version": "1.0.0", "manual": "LEBR-2025"},
+		"project":       map[string]string{"key": "專案1", "title": "專案1"},
+		"snapshot":      map[string]string{"name": name},
+		"result": map[string]any{"grade": "1級", "cfr": 0.18, "eci": 355.7, "stages": map[string]any{
+			"design": map[string]float64{"structure": structure, "nonStructural": 40000 + partition, "renew": 8000, "construction": 1000, "demolition": 6000},
+		}},
+		"items": []map[string]any{
+			{"side": "design", "category": "cw", "categoryName": "不透光帷幕外牆及一般外牆", "carbon": 40000.0},
+			{"side": "design", "category": "iw", "categoryName": "內隔間", "carbon": partition},
+			{"side": "baseline", "category": "iw", "categoryName": "內隔間", "carbon": 99999.0},
+		},
+		"excel": excel,
+	})
+	return string(b)
+}
+
+func TestCompare(t *testing.T) {
+	_, mux := newTestMux(t)
+	do(t, mux, "POST", "/api/snapshots", compareJSON("方案 A：輕隔間", 1800, 55000, ""))
+	do(t, mux, "POST", "/api/snapshots", compareJSON("方案 B：磚牆", 4600, 55000, ""))
+
+	rec := do(t, mux, "GET", "/api/compare?ids=1,2", "")
+	if rec.Code != http.StatusOK {
+		t.Fatalf("compare = %d %s", rec.Code, rec.Body.String())
+	}
+	var c CompareResult
+	_ = json.Unmarshal(rec.Body.Bytes(), &c)
+	if len(c.Snapshots) != 2 || c.Snapshots[1].Name != "方案 B：磚牆" {
+		t.Fatalf("snapshots = %+v", c.Snapshots)
+	}
+	total := c.Stages[len(c.Stages)-1]
+	if total.Key != "total" || total.Diffs[1] != 2800 {
+		t.Fatalf("total row = %+v", total)
+	}
+	// 只比設計案：內隔間差 2,800 排第一；外牆沒差，不標名次
+	for _, row := range c.Categories {
+		switch row.Key {
+		case "iw":
+			if row.Rank != 1 || row.Diffs[1] != 2800 || row.Values[0] != 1800 {
+				t.Fatalf("iw row = %+v", row)
+			}
+		case "cw":
+			if row.Rank != 0 {
+				t.Fatalf("cw should not be ranked: %+v", row)
+			}
+		}
+	}
+
+	for _, q := range []string{"ids=1", "ids=1,1", "ids=1,2,3,4", "ids=a,b"} {
+		if rec := do(t, mux, "GET", "/api/compare?"+q, ""); rec.Code != http.StatusBadRequest {
+			t.Fatalf("%s = %d", q, rec.Code)
+		}
+	}
+	if rec := do(t, mux, "GET", "/api/compare?ids=1,9", ""); rec.Code != http.StatusNotFound {
+		t.Fatalf("missing id = %d", rec.Code)
+	}
+}
+
+func TestExcelDownload(t *testing.T) {
+	_, mux := newTestMux(t)
+	do(t, mux, "POST", "/api/snapshots", compareJSON("有附檔", 1800, 55000, "UEsDBA==")) // "PK\x03\x04"
+	do(t, mux, "POST", "/api/snapshots", compareJSON("沒附檔", 1800, 55000, ""))
+
+	rec := do(t, mux, "GET", "/api/snapshots/1/excel", "")
+	if rec.Code != http.StatusOK || rec.Body.String() != "PK\x03\x04" {
+		t.Fatalf("excel = %d %q", rec.Code, rec.Body.String())
+	}
+	if cd := rec.Header().Get("Content-Disposition"); !strings.Contains(cd, "filename*=UTF-8''") {
+		t.Fatalf("content-disposition = %s", cd)
+	}
+	if rec := do(t, mux, "GET", "/api/snapshots/2/excel", ""); rec.Code != http.StatusNotFound {
+		t.Fatalf("no excel = %d", rec.Code)
+	}
+	if rec := do(t, mux, "POST", "/api/snapshots", compareJSON("壞檔", 1, 1, "@@@")); rec.Code != http.StatusBadRequest {
+		t.Fatalf("bad base64 = %d", rec.Code)
+	}
+}

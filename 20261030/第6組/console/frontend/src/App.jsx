@@ -1,9 +1,17 @@
 import { useCallback, useEffect, useState } from 'react'
-import { health, listProjects, listSnapshots, getSnapshot } from './api.js'
+import { health, listProjects, listSnapshots, getSnapshot, compareSnapshots } from './api.js'
 import ProjectList from './pages/ProjectList.jsx'
 import Overview from './pages/Overview.jsx'
+import Timeline, { MAX_COMPARE } from './pages/Timeline.jsx'
+import Compare from './pages/Compare.jsx'
 
-// 單頁應用：左側案子清單、右側評估總覽（控制台計畫書第 6 節）。
+const VIEWS = [
+  ['overview', '評估總覽'],
+  ['timeline', '快照時間軸'],
+  ['compare', '方案比較'],
+]
+
+// 單頁應用：左側案子清單，右側評估總覽／快照時間軸／方案比較（控制台計畫書第 6 節）。
 export default function App() {
   const [online, setOnline] = useState(null) // null = 檢查中
   const [projects, setProjects] = useState([])
@@ -12,6 +20,9 @@ export default function App() {
   const [snapshotId, setSnapshotId] = useState(null)
   const [snapshot, setSnapshot] = useState(null)
   const [error, setError] = useState('')
+  const [view, setView] = useState('overview')
+  const [selected, setSelected] = useState([]) // 勾選要比較的快照 ID
+  const [compare, setCompare] = useState(null)
 
   const refresh = useCallback(async () => {
     setError('')
@@ -29,7 +40,14 @@ export default function App() {
 
   useEffect(() => { refresh() }, [refresh])
 
-  // 換案子：載入快照清單，預設選最新一筆
+  // 換案子：清掉比較選取，回到總覽
+  useEffect(() => {
+    setSelected([])
+    setCompare(null)
+    setView('overview')
+  }, [projectId])
+
+  // 載入快照清單，預設選最新一筆
   useEffect(() => {
     if (projectId == null) { setSnapshots([]); setSnapshotId(null); return }
     let alive = true
@@ -47,6 +65,25 @@ export default function App() {
       .catch((e) => alive && setError(e.message))
     return () => { alive = false }
   }, [snapshotId])
+
+  const toggle = (id) =>
+    setSelected((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : cur.length < MAX_COMPARE ? [...cur, id] : cur))
+
+  // 由舊到新排列，快照 1 是最早的那筆（比較基準）
+  const runCompare = async () => {
+    setError('')
+    try {
+      setCompare(await compareSnapshots([...selected].sort((a, b) => a - b)))
+      setView('compare')
+    } catch (e) {
+      setError(e.message)
+    }
+  }
+
+  const openSnapshot = (id) => {
+    setSnapshotId(id)
+    setView('overview')
+  }
 
   return (
     <div className="app">
@@ -73,12 +110,26 @@ export default function App() {
             {online && projects.length === 0 ? (
               <Empty />
             ) : (
-              <Overview
-                snapshot={snapshot}
-                snapshots={snapshots}
-                snapshotId={snapshotId}
-                onSelectSnapshot={setSnapshotId}
-              />
+              <>
+                <nav className="tabs" aria-label="檢視">
+                  {VIEWS.map(([key, label]) => (
+                    <button key={key} type="button" aria-current={view === key ? 'page' : undefined}
+                      className={view === key ? 'is-active' : ''}
+                      disabled={key === 'compare' && !compare}
+                      title={key === 'compare' && !compare ? '先在快照時間軸勾選 2～3 筆' : undefined}
+                      onClick={() => setView(key)}>
+                      {label}{key === 'timeline' ? `（${snapshots.length}）` : ''}
+                    </button>
+                  ))}
+                </nav>
+                {view === 'overview' && (
+                  <Overview snapshot={snapshot} snapshots={snapshots} snapshotId={snapshotId} onSelectSnapshot={setSnapshotId} />
+                )}
+                {view === 'timeline' && (
+                  <Timeline snapshots={snapshots} selected={selected} onToggle={toggle} onOpen={openSnapshot} onCompare={runCompare} />
+                )}
+                {view === 'compare' && <Compare data={compare} onBack={() => setView('timeline')} />}
+              </>
             )}
           </main>
         </div>

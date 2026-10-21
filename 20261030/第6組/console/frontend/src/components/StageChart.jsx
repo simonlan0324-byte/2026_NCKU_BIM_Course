@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { kg, pct } from '../format.js'
 
-// 四階段碳排堆疊長條：設計案與基準案並列。製造運輸拆成主結構與非主結構新建兩段，共五段。
+// 四階段碳排堆疊長條。製造運輸拆成主結構與非主結構新建兩段，共五段。
+// rows：[{ key, label, data }]，總覽傳設計案與基準案，方案比較傳各快照的設計案。
 export const SEGMENTS = [
   { key: 'structure', label: '主結構', stage: '製造運輸' },
   { key: 'nonStructural', label: '非主結構新建', stage: '製造運輸' },
@@ -26,14 +27,10 @@ function niceStep(max) {
   return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag
 }
 
-export default function StageChart({ stages }) {
+export default function StageChart({ rows, caption }) {
   const [tip, setTip] = useState(null)
-  if (!stages?.design || !stages?.baseline) return <p className="muted">—</p>
-
-  const rows = [
-    { key: 'design', label: '設計案', data: stages.design },
-    { key: 'baseline', label: '基準案', data: stages.baseline },
-  ]
+  const uid = useId()
+  if (!rows?.length || rows.some((r) => !r.data)) return <p className="muted">—</p>
   const totals = rows.map((r) => SEGMENTS.reduce((s, seg) => s + (r.data[seg.key] ?? 0), 0))
   const step = niceStep(Math.max(...totals))
   const max = Math.ceil(Math.max(...totals) / step) * step
@@ -51,7 +48,7 @@ export default function StageChart({ stages }) {
       </ul>
       <div className="chart-wrap" onMouseLeave={() => setTip(null)}>
         <svg viewBox={`0 0 ${W} ${H}`} className="stage-chart" role="img"
-          aria-label={`設計案合計 ${kg(totals[0])}，基準案合計 ${kg(totals[1])} kgCO2e`}>
+          aria-label={rows.map((r, i) => `${r.label}合計 ${kg(totals[i])}`).join('，') + ' kgCO2e'}>
           {gridVals.map((v) => (
             <g key={v} transform={`translate(${LABEL_W + sx(v)},0)`}>
               <line y1={TOP - 4} y2={H - AXIS_H} className={v === 0 ? 'baseline-axis' : 'gridline'} />
@@ -65,10 +62,10 @@ export default function StageChart({ stages }) {
             return (
               <g key={r.key}>
                 <text x={LABEL_W - 8} y={y + BAR_H / 2 + 5} textAnchor="end" className="row-label">{r.label}</text>
-                <clipPath id={`clip-${r.key}`}>
+                <clipPath id={`${uid}-clip-${r.key}`}>
                   <rect x={LABEL_W} y={y} width={sx(totals[ri])} height={BAR_H} rx={4} />
                 </clipPath>
-                <g clipPath={`url(#clip-${r.key})`}>
+                <g clipPath={`url(#${CSS.escape(uid)}-clip-${r.key})`}>
                   {visible.map((s, vi) => {
                     const x0 = LABEL_W + sx(acc)
                     acc += s.v
@@ -97,7 +94,7 @@ export default function StageChart({ stages }) {
           </div>
         )}
       </div>
-      <figcaption className="muted small">單位 kgCO2e。施工與拆除廢棄只以設計案計算一次，基準案同（手冊式 12～19）。</figcaption>
+      <figcaption className="muted small">{caption ?? '單位 kgCO2e。'}</figcaption>
     </figure>
   )
 }
