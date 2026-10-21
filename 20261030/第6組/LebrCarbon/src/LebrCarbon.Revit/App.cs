@@ -30,8 +30,8 @@ public sealed class App : IExternalApplication
         AddButton<RunCalculationCommand>(calc, asm, "數量\n檢核", "以材料數量 × 附錄一係數估算主結構碳排，與迴歸公式交叉比對");
 
         var vis = app.CreateRibbonPanel(TabName, "視覺化");
-        AddButton<HotspotColorCommand>(vis, asm, "熱點\n著色", "在目前 3D 視圖依碳排量著色");
-        AddButton<ClearColorCommand>(vis, asm, "清除\n著色", "移除著色覆寫");
+        AddButton<HotspotColorCommand>(vis, asm, "熱點\n著色", "在目前 3D 視圖依構件碳排量著色（綠 → 紅，5 級）");
+        AddButton<ClearColorCommand>(vis, asm, "清除\n著色", "移除熱點著色加上的顏色");
 
         var output = app.CreateRibbonPanel(TabName, "輸出");
         AddButton<ExportReportCommand>(output, asm, "匯出\n報表", "Excel 明細與 PDF 摘要");

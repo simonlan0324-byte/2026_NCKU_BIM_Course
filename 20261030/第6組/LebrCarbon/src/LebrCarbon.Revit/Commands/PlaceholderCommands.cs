@@ -19,12 +19,6 @@ public abstract class PlaceholderCommand : IExternalCommand
 [Transaction(TransactionMode.ReadOnly)]
 public sealed class OpenPaneCommand : PlaceholderCommand { protected override string Feature => "停駐面板（6.2 節）"; }
 
-[Transaction(TransactionMode.Manual)]
-public sealed class HotspotColorCommand : PlaceholderCommand { protected override string Feature => "F8 3D 熱點著色"; }
-
-[Transaction(TransactionMode.Manual)]
-public sealed class ClearColorCommand : PlaceholderCommand { protected override string Feature => "清除著色"; }
-
 [Transaction(TransactionMode.ReadOnly)]
 public sealed class ExportReportCommand : PlaceholderCommand { protected override string Feature => "F10 報表輸出"; }
 

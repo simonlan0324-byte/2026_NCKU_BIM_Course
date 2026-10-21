@@ -6,6 +6,9 @@ namespace LebrCarbon.Revit.Extraction;
 /// <summary>模型中一筆非主結構數量（已依 B-LCC ID 與類型彙總）。</summary>
 public sealed record NsQuantity(string BlccId, string TypeName, string CategoryName, double AreaM2, int Count);
 
+/// <summary>模型中一個有 LEBR_BlccId 的構件（未彙總）。</summary>
+public sealed record NsElement(long ElementId, string TypeName, string CategoryName, IReadOnlyList<string> BlccIds, double AreaM2);
+
 /// <summary>
 /// 依類型參數 LEBR_BlccId 擷取非主結構構件面積（計畫書 F5）。
 /// 一個類型可填多個 ID，以分號分隔，例如外牆類型填「CW-0;OW-4」代表 RC 外牆本體與外裝各計一次。
@@ -25,6 +28,28 @@ public static class NonStructuralExtractor
     public static List<NsQuantity> Extract(Document doc, double groundElevationM, List<string> warnings)
     {
         var acc = new Dictionary<(string Id, string Type, string Cat), (double Area, int Count)>();
+
+        foreach (var e in ExtractElements(doc, groundElevationM, warnings))
+        {
+            foreach (var id in e.BlccIds)
+            {
+                var key = (id, e.TypeName, e.CategoryName);
+                acc.TryGetValue(key, out var v);
+                acc[key] = (v.Area + e.AreaM2, v.Count + 1);
+            }
+        }
+
+        return acc.Select(kv => new NsQuantity(kv.Key.Id, kv.Key.Type, kv.Key.Cat, kv.Value.Area, kv.Value.Count))
+            .OrderBy(q => q.BlccId).ToList();
+    }
+
+    /// <summary>
+    /// 逐一列出有 LEBR_BlccId 的構件與面積（不彙總），供熱點著色等需要元件層級資料的功能使用。
+    /// groundElevationM 傳 double.NegativeInfinity 代表地下層也納入。
+    /// </summary>
+    public static List<NsElement> ExtractElements(Document doc, double groundElevationM, List<string> warnings)
+    {
+        var list = new List<NsElement>();
 
         var elements = new FilteredElementCollector(doc)
             .WherePasses(new ElementMulticategoryFilter(Categories))
@@ -48,16 +73,10 @@ public static class NonStructuralExtractor
                 continue;
             }
 
-            foreach (var id in ids)
-            {
-                var key = (id, type?.Name ?? "", e.Category.Name);
-                acc.TryGetValue(key, out var v);
-                acc[key] = (v.Area + area, v.Count + 1);
-            }
+            list.Add(new NsElement(e.Id.Value, type?.Name ?? "", e.Category.Name, ids, area));
         }
 
-        return acc.Select(kv => new NsQuantity(kv.Key.Id, kv.Key.Type, kv.Key.Cat, kv.Value.Area, kv.Value.Count))
-            .OrderBy(q => q.BlccId).ToList();
+        return list;
     }
 
     /// <summary>
