@@ -1,0 +1,295 @@
+{
+  "updatedAt": "",
+  "items": [
+    {
+      "elementId": 1740,
+      "typeName": "通用 - 200mm",
+      "kind": "wall",
+      "bodyId": "CW-0",
+      "finishId": "OW-1",
+      "areaM2": 478.98,
+      "confidence": "confirmed",
+      "note": "與使用者確認：RC牆體+磁磚外裝"
+    },
+    {
+      "elementId": 1755,
+      "typeName": "通用 - 300mm",
+      "kind": "wall",
+      "bodyId": "CW-0",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "比照200mm處理，未逐一確認"
+    },
+    {
+      "elementId": 1739,
+      "typeName": "外部 - 在金屬立柱上的磚牆 1",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "與使用者確認：B-LCC無磚牆外牆本體選項，近似套用CW-1"
+    },
+    {
+      "elementId": 30456,
+      "typeName": "外部 - 具金屬立柱的磚牆上的磚",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "比照1739同工法處理"
+    },
+    {
+      "elementId": 1741,
+      "typeName": "通用 - 磚石牆 225mm",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "磚石牆，比照磚牆近似處理"
+    },
+    {
+      "elementId": 1742,
+      "typeName": "通用 - 140mm 磚石",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "同上"
+    },
+    {
+      "elementId": 1759,
+      "typeName": "填充牆 200mm",
+      "kind": "wall",
+      "bodyId": "CW-0",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "假設作外牆用，RC預設，風險較高"
+    },
+    {
+      "elementId": 9678,
+      "typeName": "複合上彩外磚牆",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-3",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "名稱含「上彩」，外裝改塗料(OW-3)"
+    },
+    {
+      "elementId": 35350,
+      "typeName": "複合外磚牆",
+      "kind": "wall",
+      "bodyId": "CW-1",
+      "finishId": "OW-1",
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "已確認金屬立柱結構(350mm/460mm)"
+    },
+    {
+      "elementId": 15514,
+      "typeName": "外部玻璃",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "玻璃帷幕，不需外裝層"
+    },
+    {
+      "elementId": 15513,
+      "typeName": "店面",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 382,
+      "typeName": "帷幕牆",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1747,
+      "typeName": "CW 102-50-100p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "Revit帷幕牆系統"
+    },
+    {
+      "elementId": 1749,
+      "typeName": "CW 102-50-140p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1750,
+      "typeName": "CW 102-50-215p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1752,
+      "typeName": "CW 102-85-100p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1748,
+      "typeName": "CW 102-85-140p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1751,
+      "typeName": "CW 102-85-215p",
+      "kind": "glazing",
+      "bodyId": "CW-2",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1745,
+      "typeName": "室內磚牆 100",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "磚牆雙面粉刷基準，未指定實際粉刷方式"
+    },
+    {
+      "elementId": 1753,
+      "typeName": "室內磚牆 140",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "同上"
+    },
+    {
+      "elementId": 1754,
+      "typeName": "室內磚牆 190",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "guess",
+      "note": "同上"
+    },
+    {
+      "elementId": 1738,
+      "typeName": "輕隔間 1 小時 138mm",
+      "kind": "interior",
+      "bodyId": "IW-3",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "名稱「輕隔間」直接對應IW-3"
+    },
+    {
+      "elementId": 1744,
+      "typeName": "輕隔間 1 小時79mm",
+      "kind": "interior",
+      "bodyId": "IW-3",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1746,
+      "typeName": "輕隔間 2 小時 135mm",
+      "kind": "interior",
+      "bodyId": "IW-3",
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1757,
+      "typeName": "基礎 - 300mm 混凝土",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "基礎構件，不列入非主結構評估範疇"
+    },
+    {
+      "elementId": 6844,
+      "typeName": "基礎 - 900mm 基礎",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "同上"
+    },
+    {
+      "elementId": 1758,
+      "typeName": "擋土牆 - 300mm 混凝土",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "基地工程，非外殼範疇"
+    },
+    {
+      "elementId": 19014,
+      "typeName": "固定: 0406 x 0610mm",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 1.486,
+      "confidence": "guess",
+      "note": "未指定實際玻璃規格，套用基準鋁框+6mm玻璃；面積=6扇x0.406x0.610m 讀自模型"
+    },
+    {
+      "elementId": 29795,
+      "typeName": "單個嵌平: 0915 x 2134mm",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "與使用者確認：B-LCC無門的對應類別，排除（與磚牆無對應案例同一類限制）"
+    }
+  ]
+}
