@@ -28,8 +28,9 @@ type BlccFile struct {
 
 type MappingItem struct {
 	ElementId  int     `json:"elementId"`
+	Project    string  `json:"project"` // 來源 Revit 專案名，避免不同檔案的 elementId 混淆
 	TypeName   string  `json:"typeName"`
-	Kind       string  `json:"kind"` // wall(CW+OW) / glazing(CW only) / interior(IW) / excluded
+	Kind       string  `json:"kind"` // wall(CW+OW) / glazing(CW only) / interior(IW) / window(W) / excluded
 	BodyId     *string `json:"bodyId"`
 	FinishId   *string `json:"finishId"`
 	AreaM2     float64 `json:"areaM2"`
@@ -168,6 +169,7 @@ func handleMappingUpdate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	var body struct {
+		Project  string   `json:"project"`
 		BodyId   *string  `json:"bodyId"`
 		FinishId *string  `json:"finishId"`
 		AreaM2   *float64 `json:"areaM2"`
@@ -181,7 +183,9 @@ func handleMappingUpdate(w http.ResponseWriter, r *http.Request) {
 	defer mu.Unlock()
 	found := false
 	for i := range mapping.Items {
-		if mapping.Items[i].ElementId == elementId {
+		// 不同專案的 elementId 可能剛好相同（都來自同一份 Revit 範本），
+		// 必須連 project 一起比對，否則會改到別的專案的資料。
+		if mapping.Items[i].ElementId == elementId && mapping.Items[i].Project == body.Project {
 			if body.BodyId != nil {
 				if *body.BodyId == "" {
 					mapping.Items[i].BodyId = nil
@@ -221,7 +225,7 @@ func handleMappingUpdate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	for _, it := range mapping.Items {
-		if it.ElementId == elementId {
+		if it.ElementId == elementId && it.Project == body.Project {
 			json.NewEncoder(w).Encode(resolve(it))
 			return
 		}

@@ -10,11 +10,11 @@ export async function getBlccByCategory(category) {
   return r.json();
 }
 
-export async function updateMapping(elementId, patch) {
+export async function updateMapping(elementId, project, patch) {
   const r = await fetch(`${BASE}/api/mapping/${elementId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(patch),
+    body: JSON.stringify({ ...patch, project }),
   });
   if (!r.ok) throw new Error(await r.text());
   return r.json();

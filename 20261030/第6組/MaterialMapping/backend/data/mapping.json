@@ -9,7 +9,8 @@
       "finishId": "OW-1",
       "areaM2": 478.98,
       "confidence": "confirmed",
-      "note": "與使用者確認：RC牆體+磁磚外裝"
+      "note": "與使用者確認：RC牆體+磁磚外裝",
+      "project": "專案1"
     },
     {
       "elementId": 1755,
@@ -19,7 +20,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "比照200mm處理，未逐一確認"
+      "note": "比照200mm處理，未逐一確認",
+      "project": "專案1"
     },
     {
       "elementId": 1739,
@@ -29,7 +31,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "與使用者確認：B-LCC無磚牆外牆本體選項，近似套用CW-1"
+      "note": "與使用者確認：B-LCC無磚牆外牆本體選項，近似套用CW-1",
+      "project": "專案1"
     },
     {
       "elementId": 30456,
@@ -39,7 +42,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "比照1739同工法處理"
+      "note": "比照1739同工法處理",
+      "project": "專案1"
     },
     {
       "elementId": 1741,
@@ -49,7 +53,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "磚石牆，比照磚牆近似處理"
+      "note": "磚石牆，比照磚牆近似處理",
+      "project": "專案1"
     },
     {
       "elementId": 1742,
@@ -59,7 +64,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1759,
@@ -69,7 +75,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "假設作外牆用，RC預設，風險較高"
+      "note": "假設作外牆用，RC預設，風險較高",
+      "project": "專案1"
     },
     {
       "elementId": 9678,
@@ -79,7 +86,8 @@
       "finishId": "OW-3",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "名稱含「上彩」，外裝改塗料(OW-3)"
+      "note": "名稱含「上彩」，外裝改塗料(OW-3)",
+      "project": "專案1"
     },
     {
       "elementId": 35350,
@@ -89,7 +97,8 @@
       "finishId": "OW-1",
       "areaM2": 0,
       "confidence": "guess",
-      "note": "已確認金屬立柱結構(350mm/460mm)"
+      "note": "已確認金屬立柱結構(350mm/460mm)",
+      "project": "專案1"
     },
     {
       "elementId": 15514,
@@ -99,7 +108,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "玻璃帷幕，不需外裝層"
+      "note": "玻璃帷幕，不需外裝層",
+      "project": "專案1"
     },
     {
       "elementId": 15513,
@@ -109,7 +119,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 382,
@@ -119,7 +130,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1747,
@@ -129,7 +141,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "Revit帷幕牆系統"
+      "note": "Revit帷幕牆系統",
+      "project": "專案1"
     },
     {
       "elementId": 1749,
@@ -139,7 +152,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1750,
@@ -149,7 +163,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1752,
@@ -159,7 +174,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1748,
@@ -169,7 +185,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1751,
@@ -179,7 +196,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1745,
@@ -189,7 +207,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "guess",
-      "note": "磚牆雙面粉刷基準，未指定實際粉刷方式"
+      "note": "磚牆雙面粉刷基準，未指定實際粉刷方式",
+      "project": "專案1"
     },
     {
       "elementId": 1753,
@@ -199,7 +218,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "guess",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1754,
@@ -209,7 +229,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "guess",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1738,
@@ -219,7 +240,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "名稱「輕隔間」直接對應IW-3"
+      "note": "名稱「輕隔間」直接對應IW-3",
+      "project": "專案1"
     },
     {
       "elementId": 1744,
@@ -229,7 +251,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1746,
@@ -239,7 +262,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1757,
@@ -249,7 +273,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "基礎構件，不列入非主結構評估範疇"
+      "note": "基礎構件，不列入非主結構評估範疇",
+      "project": "專案1"
     },
     {
       "elementId": 6844,
@@ -259,7 +284,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "同上"
+      "note": "同上",
+      "project": "專案1"
     },
     {
       "elementId": 1758,
@@ -269,7 +295,8 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "基地工程，非外殼範疇"
+      "note": "基地工程，非外殼範疇",
+      "project": "專案1"
     },
     {
       "elementId": 19014,
@@ -279,7 +306,8 @@
       "finishId": null,
       "areaM2": 1.486,
       "confidence": "guess",
-      "note": "未指定實際玻璃規格，套用基準鋁框+6mm玻璃；面積=6扇x0.406x0.610m 讀自模型"
+      "note": "未指定實際玻璃規格，套用基準鋁框+6mm玻璃；面積=6扇x0.406x0.610m 讀自模型",
+      "project": "專案1"
     },
     {
       "elementId": 29795,
@@ -289,7 +317,481 @@
       "finishId": null,
       "areaM2": 0,
       "confidence": "confirmed",
-      "note": "與使用者確認：B-LCC無門的對應類別，排除（與磚牆無對應案例同一類限制）"
+      "note": "與使用者確認：B-LCC無門的對應類別，排除（與磚牆無對應案例同一類限制）",
+      "project": "專案1"
+    },
+    {
+      "elementId": 642850,
+      "typeName": "RC_15cm_(外牆)",
+      "kind": "wall",
+      "bodyId": "CW-0",
+      "finishId": "OW-3",
+      "areaM2": 896.0,
+      "confidence": "guess",
+      "note": "結構=否,確認為外殼構件；外裝配對「粉刷外」→OW-3(塗料外裝)。注意：模型裡還有「磁磚30*30/60」類型但無實際牆用到，若之後有牆改貼磁磚要改成OW-1",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 690018,
+      "typeName": "RC_15cm_(外牆)雙",
+      "kind": "wall",
+      "bodyId": "CW-0",
+      "finishId": "OW-3",
+      "areaM2": 73.0,
+      "confidence": "guess",
+      "note": "比照RC_15cm_(外牆)處理，「雙」的意義未確認",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 319125,
+      "typeName": "RC_15cm(內牆)_雙",
+      "kind": "interior",
+      "bodyId": "IW-4",
+      "finishId": null,
+      "areaM2": 269.0,
+      "confidence": "guess",
+      "note": "B-LCC僅有IW-4(12cm RC隔間牆)，無15cm選項，近似套用",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 689683,
+      "typeName": "RC_15cm(內牆)_單",
+      "kind": "interior",
+      "bodyId": "IW-4",
+      "finishId": null,
+      "areaM2": 4.0,
+      "confidence": "guess",
+      "note": "同上",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 322712,
+      "typeName": "磚牆_12cm",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 71.0,
+      "confidence": "guess",
+      "note": "未標示粉刷側數，預設雙面粉刷基準(IW-1)，建議人工覆核",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 673298,
+      "typeName": "磚牆_12cm(室內雙側)",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 151.0,
+      "confidence": "confirmed",
+      "note": "名稱明確「雙側」粉刷，直接對應IW-1基準",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 715247,
+      "typeName": "磚牆_12cm(室內單側)",
+      "kind": "interior",
+      "bodyId": "IW-1",
+      "finishId": null,
+      "areaM2": 9.0,
+      "confidence": "guess",
+      "note": "只有單側粉刷，B-LCC無此選項，近似套用IW-1(雙面粉刷)會偏高估，建議覆核",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 649401,
+      "typeName": "磚牆_12cm_浴室單側",
+      "kind": "interior",
+      "bodyId": "IW-6",
+      "finishId": null,
+      "areaM2": 141.0,
+      "confidence": "guess",
+      "note": "浴室牆常用水泥砂漿粉刷(防水需求)，套用IW-6(水泥雙面粉刷空心磚牆)而非IW-1，但「單側」與雙面粉刷不完全吻合",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 657192,
+      "typeName": "磚牆_12cm_浴室雙側",
+      "kind": "interior",
+      "bodyId": "IW-6",
+      "finishId": null,
+      "areaM2": 14.0,
+      "confidence": "guess",
+      "note": "同上，雙側較符合IW-6",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 590200,
+      "typeName": "RC_60cm",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 79.0,
+      "confidence": "confirmed",
+      "note": "結構=是、結構用途=支承、位於GL(地下)層，屬主結構/基礎，不列入非主結構評估",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 590212,
+      "typeName": "RC_40cm",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 46.0,
+      "confidence": "guess",
+      "note": "比照RC_60cm，推測同為結構用途，建議覆核確認「結構」參數",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 606946,
+      "typeName": "粉刷",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 451.0,
+      "confidence": "confirmed",
+      "note": "與使用者確認：與相鄰磚牆/RC牆位置重疊，為同一面牆的粉刷層，已併入對應牆體的BlccId，本類型不另計，避免重複計算",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 632511,
+      "typeName": "粉刷外",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 46.0,
+      "confidence": "confirmed",
+      "note": "已併入RC_15cm_(外牆)的OW-3，本類型不另計，避免重複計算",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 342839,
+      "typeName": "矽酸鈣板_12cm(雙面)",
+      "kind": "interior",
+      "bodyId": "IW-3",
+      "finishId": null,
+      "areaM2": 347.0,
+      "confidence": "confirmed",
+      "note": "名稱直接對應IW-3(輕隔間牆矽酸鈣板)",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 654045,
+      "typeName": "矽酸鈣板_12cm(單面)",
+      "kind": "interior",
+      "bodyId": "IW-3",
+      "finishId": null,
+      "areaM2": 3.0,
+      "confidence": "guess",
+      "note": "單面變體，近似套用IW-3",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 657780,
+      "typeName": "防水_180cm",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 24.0,
+      "confidence": "confirmed",
+      "note": "防水塗層，B-LCC資料庫無對應類別，排除",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 637950,
+      "typeName": "導擺-10cm",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 19.0,
+      "confidence": "guess",
+      "note": "用途未確認(可能為導牆/隔牆)，B-LCC無明確對應，暫排除，待使用者確認用途後可能需要補上",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 578132,
+      "typeName": "鋁包版",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 2.0,
+      "confidence": "guess",
+      "note": "屋頂層(R1F)小面積女兒牆包板，B-LCC無鋁板包覆選項，面積小、影響有限，暫排除",
+      "project": "SB_B_250212"
+    },
+    {
+      "elementId": 637819,
+      "project": "SB_B_250212",
+      "typeName": "窗 W10（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 2.88,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 705228,
+      "project": "SB_B_250212",
+      "typeName": "窗 W10b（3扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 3.6,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 563290,
+      "project": "SB_B_250212",
+      "typeName": "窗 W11（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 14.22,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 563577,
+      "project": "SB_B_250212",
+      "typeName": "窗 W11a（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 14.04,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 564935,
+      "project": "SB_B_250212",
+      "typeName": "窗 W12（10扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 8.0,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 565342,
+      "project": "SB_B_250212",
+      "typeName": "窗 W12a（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 1.92,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 552399,
+      "project": "SB_B_250212",
+      "typeName": "窗 W13（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 1.92,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 717821,
+      "project": "SB_B_250212",
+      "typeName": "窗 W15（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 1.5,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 721337,
+      "project": "SB_B_250212",
+      "typeName": "窗 W16（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 1.92,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 528898,
+      "project": "SB_B_250212",
+      "typeName": "窗 W3a（4扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 3.84,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 529081,
+      "project": "SB_B_250212",
+      "typeName": "窗 W3b（10扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 12.0,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 552634,
+      "project": "SB_B_250212",
+      "typeName": "窗 W3c（3扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 4.32,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 706242,
+      "project": "SB_B_250212",
+      "typeName": "窗 W4a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 4.68,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 562191,
+      "project": "SB_B_250212",
+      "typeName": "窗 W6（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 2.4,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 706013,
+      "project": "SB_B_250212",
+      "typeName": "窗 W7（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 3.6,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 705880,
+      "project": "SB_B_250212",
+      "typeName": "窗 W7a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 2.16,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 555985,
+      "project": "SB_B_250212",
+      "typeName": "窗 W8（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 3.6,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 561562,
+      "project": "SB_B_250212",
+      "typeName": "窗 W8a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 2.16,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 710480,
+      "project": "SB_B_250212",
+      "typeName": "窗 W9（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "kind": "window",
+      "bodyId": "W-1-AL",
+      "finishId": null,
+      "areaM2": 4.21,
+      "confidence": "guess",
+      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+    },
+    {
+      "elementId": 568922,
+      "project": "SB_B_250212",
+      "typeName": "門 D3g",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
+    },
+    {
+      "elementId": 569027,
+      "project": "SB_B_250212",
+      "typeName": "門 D3",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
+    },
+    {
+      "elementId": 571867,
+      "project": "SB_B_250212",
+      "typeName": "門 D3f",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
+    },
+    {
+      "elementId": 576197,
+      "project": "SB_B_250212",
+      "typeName": "門 D3f(220*75)",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
+    },
+    {
+      "elementId": 576432,
+      "project": "SB_B_250212",
+      "typeName": "門 D3d(220*90)",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
+    },
+    {
+      "elementId": 581554,
+      "project": "SB_B_250212",
+      "typeName": "門 M1524",
+      "kind": "excluded",
+      "bodyId": null,
+      "finishId": null,
+      "areaM2": 0,
+      "confidence": "confirmed",
+      "note": "B-LCC資料庫無門的對應類別，排除（與專案1的門同一類限制）"
     }
   ]
 }
