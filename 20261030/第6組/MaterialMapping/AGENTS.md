@@ -20,6 +20,19 @@ AI 透過 Revit MCP 讀取 Revit 模型的牆/窗類型，比對官方 B-LCC 碳
 6. **重開整個 Claude Desktop app（不是只關分頁）**，或是 Fork 現有對話 session，MCP 連線才會生效
 7. 用 `mcp__revit-mcp__get_project_info` 驗證連線，應該回傳目前 Revit 開啟的專案名稱
 
+## 常見卡關（今天實際踩過的坑）
+
+接 Revit MCP 這段，步驟寫出來不等於照做就會一次成功，下面是今天實際發生過、會重複出現的狀況：
+
+| 症狀 / 錯誤訊息 | 原因 | 解法 |
+|---|---|---|
+| `dotnet build -c Release.R{XX}` 說該 configuration 不存在 | csproj 的 `<Configurations>` 清單沒列出這個 Revit 版本（例如一開始只有 R24/R26，沒有 R27） | 手動把 `Release.R{XX}` 加進 `MCP\RevitMCP.csproj`（或 `20261016/sample/revit-plugin/RfiPlugin.csproj`）的 `<Configurations>`；Nice3point SDK 會自動依版號後兩碼找對應的 RevitAPI NuGet 套件，不用額外設定 |
+| `install-addon.ps1` 報錯說版本不支援（`[ValidateSet(...)]`） | 腳本的版本白名單沒收錄這個 Revit 年份 | 不要等腳本更新，直接手動把 `MCP\bin\Release.R{XX}\*` 全部檔案 + `.addin` 複製到 `%AppData%\Autodesk\Revit\Addins\{完整年份}\`（對應資料夾放 DLL，上一層放 `.addin`） |
+| Revit MCP 工具（`mcp__revit-mcp__*`）完全不在這個 session 的工具清單裡 | `.mcp.json` 是在 session **啟動時**讀取的，中途改檔案或只關分頁不會重新讀 | 改完 `.mcp.json` 後，**整個 Claude Desktop app 關掉重開**，或是 Fork 現有對話成新 session（Fork 會帶著對話記錄、但走全新進程，會重新讀 `.mcp.json`） |
+| 呼叫 Revit MCP 工具回傳空的 `Error:`、或逾時 | Revit 可能正卡在某個操作中間（彈窗沒關、指令還沒結束），或是短時間內連續發太多次呼叫 | 先確認 Revit 視窗沒有卡住的對話框、沒有還在進行中的指令；多次呼叫改成一次一個、不要同時並行發送（並行很容易逾時） |
+| `modify_element_parameter` 回傳「找不到參數: LEBR_BlccId」 | 組員外掛的 `LEBR_BlccId` 等共用參數是**每個 Revit 文件各自要綁定一次**，換了新模型就要重按 | 請使用者在 Revit 裡：「低碳建築」頁籤 →「綁定參數」，按一次（每個 `.rvt` 檔都要各按一次，不是裝了外掛就自動有） |
+| 寫入 Revit 後，`get_element_info` 讀回來看不到剛寫的參數值 | 可能是查詢時機問題（文件還沒 regen），不代表寫入失敗 | 用 `modify_element_parameter` 的回傳訊息（有沒有「成功修改參數」）判斷是否成功，不要單靠 `get_element_info` 讀不到就認定失敗；必要時重新查一次 |
+
 ## 操作流程（處理一個新模型）
 
 ```
