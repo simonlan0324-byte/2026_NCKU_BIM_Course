@@ -328,7 +328,7 @@
       "finishId": "OW-3",
       "areaM2": 896.0,
       "confidence": "guess",
-      "note": "結構=否,確認為外殼構件；外裝配對「粉刷外」→OW-3(塗料外裝)。注意：模型裡還有「磁磚30*30/60」類型但無實際牆用到，若之後有牆改貼磁磚要改成OW-1",
+      "note": "已寫回Revit的LEBR_BlccId。結構=否,確認為外殼構件；外裝配對「粉刷外」→OW-3(塗料外裝)。注意：模型裡還有「磁磚30*30/60」類型但無實際牆用到，若之後有牆改貼磁磚要改成OW-1",
       "project": "SB_B_250212"
     },
     {
@@ -339,7 +339,7 @@
       "finishId": "OW-3",
       "areaM2": 73.0,
       "confidence": "guess",
-      "note": "比照RC_15cm_(外牆)處理，「雙」的意義未確認",
+      "note": "已寫回Revit的LEBR_BlccId。比照RC_15cm_(外牆)處理，「雙」的意義未確認",
       "project": "SB_B_250212"
     },
     {
@@ -350,7 +350,7 @@
       "finishId": null,
       "areaM2": 269.0,
       "confidence": "guess",
-      "note": "B-LCC僅有IW-4(12cm RC隔間牆)，無15cm選項，近似套用",
+      "note": "已寫回Revit的LEBR_BlccId。B-LCC僅有IW-4(12cm RC隔間牆)，無15cm選項，近似套用",
       "project": "SB_B_250212"
     },
     {
@@ -361,7 +361,7 @@
       "finishId": null,
       "areaM2": 4.0,
       "confidence": "guess",
-      "note": "同上",
+      "note": "已寫回Revit的LEBR_BlccId。同上",
       "project": "SB_B_250212"
     },
     {
@@ -372,7 +372,7 @@
       "finishId": null,
       "areaM2": 71.0,
       "confidence": "guess",
-      "note": "未標示粉刷側數，預設雙面粉刷基準(IW-1)，建議人工覆核",
+      "note": "已寫回Revit的LEBR_BlccId。未標示粉刷側數，預設雙面粉刷基準(IW-1)，建議人工覆核",
       "project": "SB_B_250212"
     },
     {
@@ -383,7 +383,7 @@
       "finishId": null,
       "areaM2": 151.0,
       "confidence": "confirmed",
-      "note": "名稱明確「雙側」粉刷，直接對應IW-1基準",
+      "note": "已寫回Revit的LEBR_BlccId。名稱明確「雙側」粉刷，直接對應IW-1基準",
       "project": "SB_B_250212"
     },
     {
@@ -394,7 +394,7 @@
       "finishId": null,
       "areaM2": 9.0,
       "confidence": "guess",
-      "note": "只有單側粉刷，B-LCC無此選項，近似套用IW-1(雙面粉刷)會偏高估，建議覆核",
+      "note": "已寫回Revit的LEBR_BlccId。只有單側粉刷，B-LCC無此選項，近似套用IW-1(雙面粉刷)會偏高估，建議覆核",
       "project": "SB_B_250212"
     },
     {
@@ -405,7 +405,7 @@
       "finishId": null,
       "areaM2": 141.0,
       "confidence": "guess",
-      "note": "浴室牆常用水泥砂漿粉刷(防水需求)，套用IW-6(水泥雙面粉刷空心磚牆)而非IW-1，但「單側」與雙面粉刷不完全吻合",
+      "note": "已寫回Revit的LEBR_BlccId。浴室牆常用水泥砂漿粉刷(防水需求)，套用IW-6(水泥雙面粉刷空心磚牆)而非IW-1，但「單側」與雙面粉刷不完全吻合",
       "project": "SB_B_250212"
     },
     {
@@ -416,7 +416,7 @@
       "finishId": null,
       "areaM2": 14.0,
       "confidence": "guess",
-      "note": "同上，雙側較符合IW-6",
+      "note": "已寫回Revit的LEBR_BlccId。同上，雙側較符合IW-6",
       "project": "SB_B_250212"
     },
     {
@@ -471,7 +471,7 @@
       "finishId": null,
       "areaM2": 347.0,
       "confidence": "confirmed",
-      "note": "名稱直接對應IW-3(輕隔間牆矽酸鈣板)",
+      "note": "已寫回Revit的LEBR_BlccId。名稱直接對應IW-3(輕隔間牆矽酸鈣板)",
       "project": "SB_B_250212"
     },
     {
@@ -482,7 +482,7 @@
       "finishId": null,
       "areaM2": 3.0,
       "confidence": "guess",
-      "note": "單面變體，近似套用IW-3",
+      "note": "已寫回Revit的LEBR_BlccId。單面變體，近似套用IW-3",
       "project": "SB_B_250212"
     },
     {
@@ -519,213 +519,213 @@
       "project": "SB_B_250212"
     },
     {
-      "elementId": 637819,
+      "elementId": 527441,
       "project": "SB_B_250212",
-      "typeName": "窗 W10（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W10（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 2.88,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=527441）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 705228,
+      "elementId": 415444,
       "project": "SB_B_250212",
-      "typeName": "窗 W10b（3扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W10b（3扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 3.6,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=415444）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 563290,
+      "elementId": 563269,
       "project": "SB_B_250212",
-      "typeName": "窗 W11（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W11（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 14.22,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=563269）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 563577,
+      "elementId": 563271,
       "project": "SB_B_250212",
-      "typeName": "窗 W11a（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W11a（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 14.04,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=563271）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 564935,
+      "elementId": 526500,
       "project": "SB_B_250212",
-      "typeName": "窗 W12（10扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W12（10扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 8.0,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=526500）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 565342,
+      "elementId": 526557,
       "project": "SB_B_250212",
-      "typeName": "窗 W12a（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W12a（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 1.92,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=526557）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 552399,
+      "elementId": 552396,
       "project": "SB_B_250212",
-      "typeName": "窗 W13（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W13（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 1.92,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=552396）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 717821,
+      "elementId": 717802,
       "project": "SB_B_250212",
-      "typeName": "窗 W15（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W15（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 1.5,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=717802）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 721337,
+      "elementId": 721318,
       "project": "SB_B_250212",
-      "typeName": "窗 W16（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W16（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 1.92,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=721318）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 528898,
+      "elementId": 528804,
       "project": "SB_B_250212",
-      "typeName": "窗 W3a（4扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W3a（4扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 3.84,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=528804）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 529081,
+      "elementId": 529074,
       "project": "SB_B_250212",
-      "typeName": "窗 W3b（10扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W3b（10扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 12.0,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=529074）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 552634,
+      "elementId": 552611,
       "project": "SB_B_250212",
-      "typeName": "窗 W3c（3扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W3c（3扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 4.32,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=552611）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 706242,
+      "elementId": 408203,
       "project": "SB_B_250212",
-      "typeName": "窗 W4a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W4a（1扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 4.68,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=408203）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 562191,
+      "elementId": 562188,
       "project": "SB_B_250212",
-      "typeName": "窗 W6（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W6（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 2.4,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=562188）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 706013,
+      "elementId": 412224,
       "project": "SB_B_250212",
-      "typeName": "窗 W7（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W7（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 3.6,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=412224）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 705880,
+      "elementId": 415528,
       "project": "SB_B_250212",
-      "typeName": "窗 W7a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W7a（1扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 2.16,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=415528）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 555985,
+      "elementId": 555964,
       "project": "SB_B_250212",
-      "typeName": "窗 W8（2扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W8（2扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 3.6,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=555964）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 561562,
+      "elementId": 555966,
       "project": "SB_B_250212",
-      "typeName": "窗 W8a（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W8a（1扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 2.16,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=555966）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
-      "elementId": 710480,
+      "elementId": 710458,
       "project": "SB_B_250212",
-      "typeName": "窗 W9（1扇，代表實例ID，寫入Revit前需再查類型ID）",
+      "typeName": "窗 W9（1扇）",
       "kind": "window",
       "bodyId": "W-1-AL",
       "finishId": null,
       "areaM2": 4.21,
       "confidence": "guess",
-      "note": "工程圖號命名，無法辨識實際玻璃/窗框規格；裝飾外框材料查到的多為N/A，少數標示鋁框，故全部套基準(W-1-AL)，待窗明細表核實"
+      "note": "已寫回Revit的LEBR_BlccId（類型ID=710458）。工程圖號命名，實際玻璃規格未知，套用基準值(W-1-AL)，之後如拿到窗明細表可再修正"
     },
     {
       "elementId": 568922,
