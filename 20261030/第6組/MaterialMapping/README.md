@@ -78,6 +78,11 @@ Revit 模型（牆/窗類型的 LEBR_BlccId 共用參數）
 # 瀏覽器開 http://localhost:5180，用「專案篩選」切換不同 Revit 檔案的資料
 ```
 
+**`localhost` 是「這台電腦自己」的意思，不是共用網址。** 每個人要在自己電腦上跑 `start.ps1`，
+才會在自己的 `localhost:5180` 看到網頁；不是一人跑起來、大家都連得到同一個。
+資料（`mapping.json`）也是存在各自電腦上，沒有自動同步——誰在哪台電腦上辨識/確認過的結果，
+只存在那台電腦，要分享給別人看就是把這個資料夾（含 `mapping.json`）一起傳過去，或是走 git commit。
+
 ## 給 AI agent 接手用
 
 怎麼接上 Revit MCP、怎麼判斷 BlccId、怎麼避免重複計算——完整規則寫在 [AGENTS.md](AGENTS.md)，
